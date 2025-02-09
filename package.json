@@ -4,8 +4,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:unit": "react-scripts test --testMatch='**/*.unit.test.js' --watchAll=false",
+    "test:functional": "react-scripts test --testMatch='**/*.functional.test.js' --watchAll=false",
+    "test": "concurrently \"pnpm test:unit\" \"pnpm test:functional\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "2.3.0",
@@ -24,7 +25,8 @@
     "@types/jest": "29.5.14",
     "@babel/preset-env": "7.26.0",
     "@babel/preset-react": "7.25.9",
-    "web-vitals": "4.2.4"
+    "web-vitals": "4.2.4",
+    "concurrently": "9.1.2"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
